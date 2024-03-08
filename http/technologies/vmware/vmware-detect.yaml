@@ -2,15 +2,15 @@ id: vmware-detect
 
 info:
   name: VMware Detection
-  author: elouhi
+  author: elouhi,bhutch
   severity: info
   description: Sends a POST request containing a SOAP payload to a vCenter server to obtain version information
   reference:
     - https://www.pwndefend.com/2021/09/23/exposed-vmware-vcenter-servers-around-the-world-cve-2021-22005/
     - https://svn.nmap.org/nmap/scripts/vmware-version.nse
-  tags: tech,vcenter,vmware
   metadata:
     max-request: 1
+  tags: tech,vcenter,vmware
 
 http:
   - raw:
@@ -54,6 +54,7 @@ http:
         group: 1
         regex:
           - "<name>(.*?)</name>"
+          - "<fullName>(.*?)</fullName>"
           - "<version>(.*?)</version>"
           - "<build>(.*?)</build>"
           - "<osType>(.*?)</osType>"
